@@ -1,7 +1,8 @@
 /* process.stdin
   .pipe(process.stdout) */
 
-import { Readable } from 'node:stream'
+import { count } from 'node:console'
+import { Readable, Transform, Writable } from 'node:stream'
 
 class OneToHundredStream extends Readable {
   index = 1
@@ -22,5 +23,20 @@ class OneToHundredStream extends Readable {
   }
 }
 
-const Count = new OneToHundredStream()
-Count.pipe(process.stdout)
+class MultiplyByTenStream extends Writable {
+  _write(chunk, encoding, callback) {
+    console.log(Number(chunk.toString()) * 10);
+    callback()
+  }
+}
+
+class InverseNumberSteam extends Transform {
+  _transform(chunk, encoding, callback) {
+    const transformed = Number(chunk.toString()) * -1
+    callback(null, Buffer.from(String(transformed)))
+  }
+}
+
+new OneToHundredStream()
+  .pipe(new InverseNumberSteam())
+  .pipe(new MultiplyByTenStream())
