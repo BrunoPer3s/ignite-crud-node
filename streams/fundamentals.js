@@ -1,6 +1,8 @@
 /* process.stdin
   .pipe(process.stdout) */
 
+// Streams são mecanismos para ler e escrever dados de forma assíncrona, controlada e em partes
+
 import { count } from 'node:console'
 import { Readable, Transform, Writable } from 'node:stream'
 
@@ -40,3 +42,5 @@ class InverseNumberSteam extends Transform {
 new OneToHundredStream()
   .pipe(new InverseNumberSteam())
   .pipe(new MultiplyByTenStream())
+
+// Método pipe encaminha os dados provindos de uma stream para outra

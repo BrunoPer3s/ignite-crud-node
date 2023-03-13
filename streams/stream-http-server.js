@@ -1,6 +1,8 @@
 import http from 'node:http'
 import { Transform } from 'node:stream'
 
+// Chunks são pedaços de dados que são lidos e escritos em uma stream de forma assíncrona
+
 class InverseNumberSteam extends Transform {
   _transform(chunk, encoding, callback) {
     const transformed = Number(chunk.toString()) * -1

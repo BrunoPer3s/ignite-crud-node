@@ -14,4 +14,4 @@ export async function json(req, res) {
   res.setHeader('Content-type', 'application/json')
 }
 
-// Middleware - Interceptador
+// Middleware - Funções que interceptam e manipulam a requisição e a resposta de uma rota

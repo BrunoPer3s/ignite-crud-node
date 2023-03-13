@@ -2,6 +2,6 @@
 
 const buf = Buffer.from("OK")
 
-// Buf - Armazenamento de Dados Binários
+// Buffers - Estruturas de dados que representa informações binárias
 
 console.log(buf);
