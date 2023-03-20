@@ -1,7 +1,6 @@
 /* process.stdin
   .pipe(process.stdout) */
 
-import { count } from 'node:console'
 import { Readable, Transform, Writable } from 'node:stream'
 
 class OneToHundredStream extends Readable {
