@@ -20,6 +20,20 @@ import { routes } from './routes.js'
 
 // Stateful - Stateless
 
+// Query Parameters: URL Stateful => Filtros, paginação, não-obrigatórios
+// Route Parameters: Identificação de recurso
+// Request Body : Envio de informações de um formulário (HTTPs)
+
+
+
+// http://localhost:3333/users?userId=1?name=Bruno
+
+// GET http://localhost:3333/users/1 Buscar o usuário de id 1
+// DELETE http://localhost:3333/users/1 Deletar o usuário de id 1
+
+// POST http://localhost:3333/users
+
+
 const server = http.createServer(async (req, res) => {
   const { method, url } = req
 
